@@ -1,12 +1,13 @@
 "use client"
 import React from 'react'
-import Footer from '@/Components/Footer'
+import "./SignIn.css"
+
 
 const SignIn = () => {
     return (
         <>
             <main>
-                <form className="mt-[10vh] w-[80vw] sm:w-1/2 mx-auto">
+                <form className="mt-[5vh] w-[80vw] sm:w-1/2 mx-auto">
                     <div className="mb-5">
                         <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
                         <input type="name" id="username" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="John Aliya" required />
@@ -28,7 +29,6 @@ const SignIn = () => {
 
                 </form>
             </main>
-            <Footer />
         </>
     )
 }
