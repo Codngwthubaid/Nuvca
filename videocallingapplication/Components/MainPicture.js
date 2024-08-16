@@ -11,32 +11,40 @@ const MainPicture = () => {
             <div className="w-10/12 lg:w-[40vw] flex justify-center items-center flex-col gap-y-3">
                 <div className='flex gap-x-2'>
                     <Image
-                        className='rounded-2xl'
+                        className='
+                        rounded-2xl
+                        sm:w-[130px]'
                         src={picFirst}
-                        width={130}
+                        width={100}
                         height={100}
                         alt="Picture of the author"
                     />
                     <Image
-                        className='rounded-lg'
+                        className='
+                        rounded-lg
+                        sm:w-[230px]'
                         src={picSecond}
-                        width={230}
+                        width={200}
                         height={100}
                         alt="Picture of the author"
                     />
                 </div>
                 <div className='flex gap-x-2'>
                     <Image
-                        className='rounded-lg'
+                        className='
+                        rounded-lg
+                        sm:w-[230px]'
                         src={picFourth}
-                        width={230}
+                        width={200}
                         height={100}
                         alt="Picture of the author"
                     />
                     <Image
-                        className='rounded-2xl'
+                        className='
+                        rounded-2xl
+                        sm:w-[130px]'
                         src={picThird}
-                        width={130}
+                        width={100}
                         height={100}
                         alt="Picture of the author"
                     />
