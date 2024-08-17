@@ -8,7 +8,7 @@ export default function Home() {
       <div className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900 min-h-full lg:h-[88vh] ">
         <div className="flex flex-col lg:flex-row gap-y-3 py-[5vh] justify-center items-center container mx-auto ">
         <MainPicture/>
-          <div className="w-10/12 lg:w-1/2 flex justify-center mb-[8vh] items-center lg:items-start  flex-col gap-y-4 ">
+          <div className="w-10/12 lg:w-1/2 flex justify-center mb-16 items-center lg:items-start  flex-col gap-y-4 ">
             <div>
               <div className="font-bold text-xl">NU-VCA</div>
               Introducing NU - VCA, your ultimate video calling solution designed for seamless communication. Whether for personal or professional use, our platform offers crystal-clear video and audio quality, ensuring every conversation is as natural as in-person. Built with cutting-edge technology, NU - VCA provides a secure, reliable, and intuitive interface, allowing you to connect effortlessly anytime, anywhere. Experience the future of communication with NU - VCA, where clarity meets convenience.
