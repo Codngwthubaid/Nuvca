@@ -1,10 +1,44 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+
+// const userSchema = new mongoose.Schema({
+//     username: { type: String, require: true },
+//     email: { type: String, require: true, unique: true },
+//     password: { type: String, select: false },
+//     GoogleID: { type: String, require: true }
+// })
+
+// export const User = mongoose.models.User || mongoose.model('User', userSchema);
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    username: { type: String, require: true },
-    email: { type: String, require: true, unique: true },
-    password: { type: String, select: false },
-    GoogleID: { type: String, require: true }
+    userName :{
+        type: String,
+        require: [true, "Please provide a Username"],
+        unique: true
+    },
+    email: {
+        type: String,
+        require: [true, "Please provide the Email"],
+        unique: true
+    },
+    tel: {
+        type: Number,
+        require: [true, "Please provide the Number"],
+        unique: true
+    },
+    password: {
+        type: String,
+        require: [true, "Please provide the password"],
+        unique: true,
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    forgotPasswordToken: String,
+    forgotPasswordExpiry: Date,
+    
 })
 
-export const User = mongoose.models.User || mongoose.model('User', userSchema);
+const User = mongoose.models.users || mongoose.model("user",userSchema)
+export default User
