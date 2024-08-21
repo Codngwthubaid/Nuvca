@@ -1,4 +1,4 @@
-import { connect } from "@/dbconfig/dbconfig"
+import connect from "@/dbconfig/dbconfig"
 import User from "@/models/userModel"
 import bcrypt from "bcryptjs"
 import { NextResponse} from "next/server"
@@ -6,7 +6,7 @@ import { NextRequest } from "next/server"
 
 connect()
 
-export async function POSt(NextRequest) {
+export async function POST(NextRequest) {
     try {
         const reqBody = await NextRequest.json()
         const { userName, email, tel, password } = reqBody
