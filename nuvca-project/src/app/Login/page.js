@@ -1,8 +1,32 @@
+"use client"
 import React from 'react'
-import "../../../SignUp/SignUp.css"
+import "../SignUp/SignUp.css"
+import {useState} from 'react'
+import { useRouter } from "next/navigation"
+import axios from "axios"
 // import { signIn } from '@/auth'
 
 const Login = () => {
+  const router = useRouter()
+  const [user, setUser] = useState({
+      userName: "",
+      email: "",
+      tel: "",
+      password: ""
+  })
+
+  // const [buttonDisable, setButtonDisable] = useState(false)
+  // const Login = async () => {
+  //     try {
+  //         const response = await axios.post("/api/users/SignUpRoute", user)
+  //         console.log("SignUp Successfull", response.data);
+  //         router.push("/Login")
+
+  //     } catch (error) {
+  //         console.log("SignUp Failed !!!");
+  //     }
+  // }
+
 
   // const loginHandler = async (formData) => {
   //   const email = formData.get("email")
@@ -32,11 +56,11 @@ const Login = () => {
         <form className="w-[80vw] mt-[10vh] sm:w-1/2 mx-auto">
           <div className="mb-5">
             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-            <input type="name" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            <input onChange={(e)=> setUser({...user, userName: e.target.value})} value={user.userName} type="name" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
           </div>
           <div className="mb-5">
             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+            <input onChange={(e)=> setUser({...user, password: e.target.value})} value={user.password} type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
           </div>
 
           <div className="flex flex-col gap-y-2 sm:flex-row sm:justify-between gap-x-5">
