@@ -17,8 +17,8 @@ const SignUpPage = () => {
         try {
             const response = await axios.post("/api/users/SignUpRoute", user)
             console.log("SignUp Successfull", response.data);
-            if (response.status == 100) {
-            setInterval(() => {
+            if (response.status == 200) {
+            setTimeout(() => {
                 console.log('Before');
                 router.push("/Login")
                 console.log('After');
