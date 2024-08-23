@@ -1,0 +1,21 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+    try {
+        const response = NextResponse.json({
+            message: "Logout Successfully !!!",
+            success: true
+        })
+
+        response.cookies.set("Token", "", {
+            httpOnly: true,
+            expires: new Date(0)
+        })
+
+    } catch (error) {
+        return NextResponse.json(
+            { error: error.message },
+            { status: 500 }
+        )
+    }
+}

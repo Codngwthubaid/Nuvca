@@ -1,10 +1,12 @@
 import React from 'react'
+import Logout from "../Logout/page"
 
 const page = () => {
     return (
-        <div>
-            I'm profile
-        </div>
+        <>
+            <div>Im Profile</div>
+            <button type="submit"><Logout /></button>
+        </>
     )
 }
 
