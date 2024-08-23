@@ -1,11 +1,27 @@
+"use client"
 import React from 'react'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
+    const router = useRouter()
+    const Logout = () => {
+        try {
+            axios.get("api/users/LogoutRoute")
+            console.log("Logout Successfully !!!");
+            router.push("/Login")
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     return (
         <>
             <button
-                type="submit"
-                className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white  flex justify-center items-center gap-x-1">Logout
+                onClick={Logout}
+                type="submit">
+                {Logout ? "Logout" : "Processing"}
             </button>
         </>
     )

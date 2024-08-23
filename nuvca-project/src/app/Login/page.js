@@ -7,6 +7,7 @@ import axios from "axios"
 
 const Login = () => {
   const router = useRouter()
+  const [buttonDisabled, setButtonDisabled] = useState(false)
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -26,6 +27,12 @@ const Login = () => {
 
       } else {
         console.log('Unwanted Error Comes !!!');
+      }
+
+      if (user.email.length > 0 && user.password.length > 0) {
+        setButtonDisabled(true)
+      } else{
+        setButtonDisabled(false)
       }
 
     } catch (error) {
@@ -68,7 +75,8 @@ const Login = () => {
             <button
               type="submit"
               onClick={handlerLogin}
-              className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">Login
+              className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">
+              {handlerLogin ? "Login" : "Processing"}
             </button>
 
             <button

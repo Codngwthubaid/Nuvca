@@ -5,7 +5,7 @@ const page = () => {
     return (
         <>
             <div>Im Profile</div>
-            <button type="submit"><Logout /></button>
+            <Logout />
         </>
     )
 }
