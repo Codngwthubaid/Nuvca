@@ -1,59 +1,36 @@
-# NU-VCA Video Calling Application
-
-Welcome to the NU-VCA Video Calling Application repository! This project is a robust and scalable video calling application built using modern web technologies. Below, you'll find an overview of the technologies used and a brief description of the project.
-
-## Technologies Used
-
-- **Next.js 14**: A powerful React framework for building server-side rendered and statically generated web applications.
-- **TailwindCSS**: A utility-first CSS framework for rapidly building custom user interfaces.
-- **MongoDB**: A NoSQL database for storing user data and call logs efficiently.
-- **NPM Packages**: Various npm packages are utilized to enhance functionality and streamline development.
-
-## Project Overview
-
-NU-VCA (Next-Gen Unified Video Calling Application) is designed to provide seamless and high-quality video calling experiences. The application leverages the latest advancements in web development to ensure performance, scalability, and ease of use.
-
-### Features
-
-- **High-Quality Video Calls**: Enjoy clear and uninterrupted video calls with minimal latency.
-- **User Authentication**: Secure user authentication and management.
-- **Real-Time Communication**: Real-time updates and notifications for an interactive experience.
-- **Responsive Design**: Fully responsive design to ensure compatibility across all devices.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-To get started with the project, follow these steps:
+First, run the development server:
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/nu-vca.git
-    cd nu-vca
-    ```
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-2. **Install Dependencies**:
-    ```bash
-    npm install
-    ```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-3. **Set Up Environment Variables**: Create a `.env` file and add the necessary environment variables.
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-4. **Run the Application**:
-    ```bash
-    npm run dev
-    ```
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Contributing
+## Learn More
 
-We welcome contributions from the community! Please read our [contributing guidelines](CONTRIBUTING.md) to get started.
+To learn more about Next.js, take a look at the following resources:
 
-## License
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Contact
+## Deploy on Vercel
 
-For any questions or feedback, please reach out to us at [your-email@example.com](mailto:your-email@example.com).
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-Thank you for checking out the NU-VCA Video Calling Application! We hope you find it useful and look forward to your contributions.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
