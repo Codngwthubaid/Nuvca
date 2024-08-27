@@ -41,14 +41,17 @@ export async function POST(request) {
         // TokenSetting
         const Token = jwt.sign(tokenData,process.env.TOKEN_SERECT,{expiresIn: "10min"})
         
-        // Creatinf Response
-        const respone = NextResponse.json({
+        // Creating Response
+        const response = NextResponse.json({
             message: "Successfully Login",
             success : true
         })
 
-        respone.cookies.set("Token",Token,{
-            httpOnly: true,
+        // response.cookies.set("Token",Token,{
+        //     httpOnly: true,
+        // })
+        response.cookies.set("Token",Token,{
+            httpOnly: true
         })
 
     } catch (error) {
