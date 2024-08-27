@@ -1,10 +1,13 @@
 "use client"
 import "./SignUp.css"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/navigation"
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUpPage = () => {
+    const [buttonDisabled, setButtonDisabled] = useState(false)
     const router = useRouter()
     const [user, setUser] = useState({
         userName: "",
@@ -17,15 +20,19 @@ const SignUpPage = () => {
         try {
             const response = await axios.post("/api/users/SignUpRoute", user)
             console.log("SignUp Successfull", response.data);
-            if (response.status == 200) {
-            setTimeout(() => {
-                console.log('Before');
-                router.push("/Login")
-                console.log('After');
-            }, 100);
-        } else{
-            console.log('Unwanted Error Comes !!!');   
-        }
+            toast('Processing !!!', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: "Bounce",
+            })
+            router.push("/Login")
+
         } catch (error) {
             console.log("SignUp Failed !!!");
         }
@@ -36,9 +43,31 @@ const SignUpPage = () => {
         signUp()
     }
 
+    useEffect(() => {
+        if (user.userName.length > 0 && user.email.length > 0 && user.tel.length > 0 && user.password.length > 0) {
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+
+    }, [user])
+
 
     return (
         <>
+            <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition="Bounce"
+            />
             <main>
                 <form className="mt-[5vh] w-[80vw] sm:w-1/2 mx-auto">
                     <div className="mb-5">
@@ -88,7 +117,7 @@ const SignUpPage = () => {
                         <button
                             type="submit"
                             onClick={handlerSignUp}
-                            className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">Sign Up
+                            className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">{buttonDisabled ? "Fill the entries first" : "Sign Up"}
                         </button>
 
                         <button

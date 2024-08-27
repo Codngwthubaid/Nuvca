@@ -1,15 +1,16 @@
 "use client"
-import React from 'react'
 import "../SignUp/SignUp.css"
-import { useState } from 'react'
-import { useRouter } from "next/navigation"
 import axios from "axios"
+import 'react-toastify/dist/ReactToastify.css';
+import React ,{ useState , useEffect} from 'react'
+import { useRouter } from "next/navigation"
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const router = useRouter()
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const [user, setUser] = useState({
-    email: "",
+    userName: "",
     password: ""
   })
 
@@ -17,24 +18,19 @@ const Login = () => {
   const Login = async () => {
     try {
       const response = await axios.post("/api/users/LoginRoute", user)
-      console.log("Login Successfull", response.data);
-      if (response.status == 200) {
-        setTimeout(() => {
-          console.log('Before');
-          router.push("/Profile")
-          console.log('After');
-        }, 100);
-
-      } else {
-        console.log('Unwanted Error Comes !!!');
-      }
-
-      if (user.email.length > 0 && user.password.length > 0) {
-        setButtonDisabled(true)
-      } else{
-        setButtonDisabled(false)
-      }
-
+      console.log("Login Successfull", response.data)
+      toast('Processing !!!', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: "Bounce",
+      })
+      router.push("/Profile")
     } catch (error) {
       console.log("Login Failed !!!");
     }
@@ -43,10 +39,34 @@ const Login = () => {
   const handlerLogin = (e) => {
     e.preventDefault()
     Login()
-}
+  }
+
+  useEffect(() => {
+    if (user.userName.length > 0 && user.password.length > 0) {
+      setButtonDisabled(false)
+    } else {
+      setButtonDisabled(true)
+    }
+  }, [user])
+
+
 
   return (
     <>
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition="Bounce"
+      />
       <main>
         <form className="w-[80vw] mt-[10vh] sm:w-1/2 mx-auto">
           <div className="mb-5">
@@ -76,7 +96,7 @@ const Login = () => {
               type="submit"
               onClick={handlerLogin}
               className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">
-              {handlerLogin ? "Login" : "Processing"}
+              {buttonDisabled ? "Fill the entries first" : "Login"}
             </button>
 
             <button
