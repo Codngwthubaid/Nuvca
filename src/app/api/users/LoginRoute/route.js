@@ -39,8 +39,17 @@ export async function POST(request) {
         };
 
         // TokenSetting
-        const Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
-        console.log(Token);
+        let Token;
+        try {
+            Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
+            console.log("Generated Token:", Token);
+        } catch (err) {
+            console.error("Error generating token:", err);
+            return NextResponse.json({
+                message: "Internal Server Error",
+                status: 500
+            });
+        }
 
         // Creating Response
         const response = NextResponse.json({
@@ -50,8 +59,7 @@ export async function POST(request) {
 
         response.cookies.set("Token", Token, {
             httpOnly: true,
-        });
-
+        });        
         return response;
 
     } catch (error) {
