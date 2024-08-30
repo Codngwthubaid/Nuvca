@@ -1,63 +1,64 @@
-import connect from "@/dbConfig/dbconfig"
-import User from "@/models/userModel"
-import bcrypt from "bcryptjs"
-import { NextResponse } from "next/server"
-import jwt from "jsonwebtoken"
+import connect from "@/dbConfig/dbconfig";
+import User from "@/models/userModel";
+import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 connect();
 
 export async function POST(request) {
     try {
-        const resBody = await request.json()
-        const { email, password } = resBody
+        const resBody = await request.json();
+        const { email, password } = resBody;
         console.log(resBody);
 
         // Getting User
-        const userExisting = User.find({email})
-        // Cross-checking of user existance
+        const userExisting = await User.findOne({ email });
+        // Cross-checking of user existence
         if (!userExisting) {
             return NextResponse.json({
                 message: "User not exist !!!",
                 success: false
-            })
+            });
         }
 
         // Password Compare
-        const validatePassword = await bcrypt.compare(password,User.password)
+        const validatePassword = await bcrypt.compare(password, userExisting.password);
         if (!validatePassword) {
             return NextResponse.json({
                 message: "Incorrect Password !!!",
                 status: 500,
-            })
+            });
         }
 
         // Creating Token
         const tokenData = {
-            id: User._id,
-            email: User.email,
-            tel: User.tel
-        }
+            id: userExisting._id,
+            email: userExisting.email,
+            tel: userExisting.tel
+        };
 
         // TokenSetting
-        const Token = jwt.sign(tokenData,process.env.TOKEN_SERECT,{expiresIn: "10min"})
-        
+        const Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
+        console.log(Token);
+
         // Creating Response
         const response = NextResponse.json({
             message: "Successfully Login",
-            success : true
-        })
+            success: true
+        });
 
-        // response.cookies.set("Token",Token,{
-        //     httpOnly: true,
-        // })
-        response.cookies.set("Token",Token,{
-            httpOnly: true
-        })
+        response.cookies.set("Token", Token, {
+            httpOnly: true,
+        });
+
+        return response;
 
     } catch (error) {
+        console.error(error);
         return NextResponse.json({
             message: "Login Failed !!!",
             status: 500
-        })
+        });
     }
 }
