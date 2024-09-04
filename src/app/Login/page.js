@@ -1,8 +1,8 @@
 "use client"
 import "../SignUp/SignUp.css"
-import axios from "axios"
+import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import React ,{ useState , useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/navigation"
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -16,9 +16,25 @@ const Login = () => {
 
   const Login = async () => {
     try {
-      const response = await axios.post("/api/users/LoginRoute", user)
-      console.log("Login Successfull", response.data)
-      toast('Processing !!!', {
+      const response = await axios.post("/api/users/LoginRoute", user);
+      console.log("Login Successful", response.data);
+
+      toast('Login Successful! Redirecting to your profile...', {
+        position: "bottom-center",
+        autoClose: 3000,  // Shorten the duration since it's a success message
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: "Bounce",
+      });
+
+      router.push("/Profile");
+    } catch (error) {
+      console.log("Login Failed!!!", error);  // Log the error object for better debugging
+      toast('Login Failed! Please check your credentials and try again.', {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -28,11 +44,9 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
         transition: "Bounce",
-      })
-      router.push("/Profile")
-    } catch (error) {
-      console.log("Login Failed !!!");
+      });
     }
+
   }
 
   const handlerLogin = (e) => {

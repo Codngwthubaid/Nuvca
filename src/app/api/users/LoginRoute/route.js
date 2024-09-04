@@ -1,6 +1,6 @@
 import connect from "@/dbConfig/dbconfig";
 import User from "@/models/userModel";
-import bcrypt from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
@@ -9,21 +9,21 @@ connect();
 export async function POST(request) {
     try {
         const resBody = await request.json();
-        const { email, password } = resBody;
+        const { userName, password } = resBody;
         console.log(resBody);
 
         // Getting User
-        const userExisting = await User.findOne({ email });
+        const userExisting = await User.findOne({ userName });
         // Cross-checking of user existence
         if (!userExisting) {
-            return NextResponse.json({
-                message: "User not exist !!!",
-                success: false
-            });
+            return NextResponse.json(
+                { error: "User not exist !!!" },
+                { status: 400 }
+            );
         }
 
         // Password Compare
-        const validatePassword = await bcrypt.compare(password, userExisting.password);
+        const validatePassword = await bcryptjs.compare(password, userExisting.password);
         if (!validatePassword) {
             return NextResponse.json({
                 message: "Incorrect Password !!!",
@@ -31,20 +31,19 @@ export async function POST(request) {
             });
         }
 
-        // Creating Token
+        // Creating Token Data
         const tokenData = {
             id: userExisting._id,
             email: userExisting.email,
-            tel: userExisting.tel
+            userName: userExisting.userName
         };
 
         // TokenSetting
-        let Token;
         try {
-            Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
+            const Token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
             console.log("Generated Token:", Token);
         } catch (err) {
-            console.error("Error generating token:", err);
+            console.log("Error generating token:", err);
             return NextResponse.json({
                 message: "Internal Server Error",
                 status: 500
@@ -59,14 +58,13 @@ export async function POST(request) {
 
         response.cookies.set("Token", Token, {
             httpOnly: true,
-        });        
+        });
         return response;
 
     } catch (error) {
-        console.error(error);
-        return NextResponse.json({
-            message: "Login Failed !!!",
-            status: 500
-        });
+        return NextResponse.json(
+            { error: error.message },
+            { status: 500 }
+        )
     }
 }
