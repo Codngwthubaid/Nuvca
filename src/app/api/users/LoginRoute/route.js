@@ -3,7 +3,7 @@ import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-
+require('dotenv').config();
 connect();
 
 export async function POST(request) {
@@ -40,7 +40,7 @@ export async function POST(request) {
 
         // TokenSetting
         try {
-            const Token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "10min" });
+            const Token =await jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
             console.log("Generated Token:", Token);
         } catch (err) {
             console.log("Error generating token:", err);
