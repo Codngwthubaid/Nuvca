@@ -2,10 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import MainPicture from "@/Components/MainPicture";
+import Navbar from "@/Components/Navbar";
+import Footer from "@/Components/Footer";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <main className="background-custom lg:min-h-[88vh">
         <section className="pt-[7vw]">
           {/* First */}
@@ -249,9 +252,9 @@ export default function Home() {
               </div>
             </article>
           </section>
-
         </section>
       </main>
+      <Footer />
     </>
   );
 }

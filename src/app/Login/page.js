@@ -1,10 +1,12 @@
 "use client"
 import "../SignUp/SignUp.css"
+import "./Login.css"
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/navigation"
 import { ToastContainer, toast } from 'react-toastify';
+import Navbar from "@/Components/Navbar";
 
 const Login = () => {
   const router = useRouter()
@@ -66,7 +68,6 @@ const Login = () => {
 
   return (
     <>
-
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -80,8 +81,9 @@ const Login = () => {
         theme="dark"
         transition="Bounce"
       />
+      <Navbar />
       <main>
-        <form className="w-[80vw] mt-[10vh] sm:w-1/2 mx-auto">
+        <form className="w-[80vw] mt-[20vh] sm:w-1/2 mx-auto">
           <div className="mb-5">
             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
             <input
