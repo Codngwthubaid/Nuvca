@@ -94,7 +94,7 @@ export default function Home() {
                 Many of these apps offer work-focused video calling features designed for professional interactions rather than casual conversations with loved ones. As long as you have a reliable Wi-Fi connection, remote work is feasible and effective.
               </div>
               <div>
-                If you're searching for a versatile video call app or software, consider NU-Video Calling Application. Its desktop and mobile applications provide
+                If you<span>&apos;</span>re searching for a versatile video call app or software, consider NU-Video Calling Application. Its desktop and mobile applications provide
                 <span className="font-semibold text-blue-700"> free video conferencing </span>
                 along with group chat, SMS/MMS messaging, and more features, ensuring seamless communication for your business needs.
               </div>
@@ -118,7 +118,7 @@ export default function Home() {
               <div className="w-[51.67vw]">Image</div>
               <div className="w-[40vw] flex flex-col gap-y-4">
                 <div className="font-semibold text-4xl">Full meeting control</div>
-                <div>In the NU-VCA, all the call controls you need are easily in reach. Adjust your volume, start a screen share, mute and unmute yourself, or start and pause recording. It's all in a clean, easy-to-use interface that lays out all these options for you right on the screen.</div>
+                <div>In the NU-VCA, all the call controls you need are easily in reach. Adjust your volume, start a screen share, mute and unmute yourself, or start and pause recording. It<span>&apos;</span>s all in a clean, easy-to-use interface that lays out all these options for you right on the screen.</div>
               </div>
             </article>
 
@@ -150,7 +150,7 @@ export default function Home() {
               <div className="w-[51.67vw]">Image</div>
               <div className="w-[40vw] flex flex-col gap-y-4">
                 <div className="font-semibold text-4xl">HD video quality</div>
-                <div>No one wants laggy audio or pixelated video quality in a meeting, especially when you're meeting with clients or prospects. NU-VCA comes with crystal-clear HD video.</div>
+                <div>No one wants laggy audio or pixelated video quality in a meeting, especially when you<span>&apos;</span>re meeting with clients or prospects. NU-VCA comes with crystal-clear HD video.</div>
               </div>
             </article>
           </section>
@@ -264,7 +264,7 @@ export default function Home() {
                   <p className="font-semibold text-6xl">Get started with free video calls</p>
                 </div>
                 <div className="w-[60vw] text-center">
-                  <p>Are you still relying on Skype or WhatsApp for your business meetings? It's time for an upgrade! Switch to NU-Video Calling Application (NU-VCA) and start hosting video meetings from anywhere in the world with our free plan. Ready to see it in action? Book a demo with our team today and discover how it can transform your business communication!</p>
+                  <p>Are you still relying on Skype or WhatsApp for your business meetings? It<span>&apos;</span>s time for an upgrade! Switch to NU-Video Calling Application (NU-VCA) and start hosting video meetings from anywhere in the world with our free plan. Ready to see it in action? Book a demo with our team today and discover how it can transform your business communication!</p>
                 </div>
                 <div>
                   <button type="submit" className=" bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl">

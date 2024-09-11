@@ -1,19 +1,18 @@
 "use client"
-import useUser from '@/hooks/useUser'
+import UserHook from '@/hooks/useUser';
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { v4 as uuidv4 } from 'uuid';
 uuidv4();
 
 const page = () => {
-  // const [user, setUser] = useUser()
-  const {user, setUser} = useUser()
-  const [roomID, setRoomID] = useState("")
+  const {user, SetUser} = UserHook()
+  const [roomID, SetRoomID] = useState("")
   const router = useRouter()
 
   useEffect(() => {
-    setUser("")
-  }, [])
+    SetUser("")
+  },[SetUser])
 
 
   return (
@@ -25,7 +24,7 @@ const page = () => {
             name="name"
             id="name"
             value={user}
-            onChange={(e) => setUser(e.target.value)}
+            onChange={(e) => SetUser(e.target.value)}
             placeholder='Enter Your Name :' />
         </div>
           <div>
@@ -35,7 +34,7 @@ const page = () => {
                 name="name"
                 id="roomID"
                 value={roomID}
-                onChange={(e) => setRoomID(e.target.value)}
+                onChange={(e) => SetRoomID(e.target.value)}
                 placeholder='Enter Room ID :' />
             </div>
             <div>
