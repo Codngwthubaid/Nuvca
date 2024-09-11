@@ -6,13 +6,13 @@ import { v4 as uuidv4 } from 'uuid';
 uuidv4();
 
 const page = () => {
-  const {user, SetUser} = UserHook()
+  const {user, setUser} = UserHook()
   const [roomID, SetRoomID] = useState("")
   const router = useRouter()
 
   useEffect(() => {
-    SetUser("")
-  },[SetUser])
+    setUser("")
+  },[])
 
 
   return (
@@ -24,7 +24,7 @@ const page = () => {
             name="name"
             id="name"
             value={user}
-            onChange={(e) => SetUser(e.target.value)}
+            onChange={(e) => setUser(e.target.value)}
             placeholder='Enter Your Name :' />
         </div>
           <div>

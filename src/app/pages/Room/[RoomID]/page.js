@@ -1,12 +1,12 @@
 "use client"
 import React from 'react'
-import useUser from '@/hooks/useUser'
+import UserHook from '@/hooks/useUser';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { v4 as uuidv4 } from 'uuid';
 uuidv4();
 
 const page = ({ params }) => {
-  const { user } = useUser()
+  const { user } = UserHook()
   const RoomID = params.RoomID
   console.log(RoomID)
 
