@@ -113,7 +113,6 @@ const Login = () => {
               className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white">
               {buttonDisabled ? "Fill the entries first" : "Login"}
             </button>
-
             <button
               type="submit"
               className="bg-blue-700 hover:bg-blue-800 focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-white  flex justify-center items-center gap-x-1">

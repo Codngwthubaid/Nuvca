@@ -1,11 +1,57 @@
 "use client"
-import React from "react";
+import React, { useState } from 'react';
+import { FaSearch, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import MainPicture from "@/Components/MainPicture";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [openFAQ, setOpenFAQ] = useState(null);
+
+  const faqs = [
+    {
+      id: 1,
+      question: 'What services do you offer?',
+      answer: 'We offer a wide range of services including web development, mobile app development, UI/UX design, and digital marketing.'
+    },
+
+    {
+      id: 2,
+      question: 'How can I contact customer support?',
+      answer: 'You can contact our customer support team via email at support@example.com or by phone at (123) 456-7890.'
+    },
+
+    {
+      id: 3,
+      question: 'What are your business hours?',
+      answer: 'Our business hours are Monday to Friday, 9:00 AM to 5:00 PM EST.'
+    },
+
+    {
+      id: 4,
+      question: 'Do you offer refunds?',
+      answer: 'Yes, we offer a 30-day money-back guarantee on all our products and services.'
+    },
+
+    {
+      id: 5,
+      question: 'How long does shipping take?',
+      answer: 'Shipping times vary depending on your location. Typically, orders are delivered within 3-5 business days.'
+    },
+  ];
+
+  const filteredFAQs = faqs.filter(faq =>
+    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const toggleFAQ = (id) => {
+    setOpenFAQ(openFAQ === id ? null : id);
+  };
+
   return (
     <>
       <Navbar />
@@ -35,7 +81,7 @@ export default function Home() {
                 </div>
                 <div>
                   <button type="submit" className="sm:w-[43.33vw] bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl">
-                    <Link href="/Login" className="text-base">Get Started</Link>
+                    <Link href="/pages/SignUp" className="text-base">Get Started</Link>
                   </button>
                 </div>
               </div>
@@ -258,3 +304,74 @@ export default function Home() {
     </>
   );
 }
+
+
+
+// const FAQPage = () => {
+
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+//       <div className="max-w-7xl mx-auto">
+//         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-12">Frequently Asked Questions</h1>
+//         <div className="flex flex-col lg:flex-row gap-8">
+//           {/* Left Section */}
+//           <div className="w-full lg:w-2/3 bg-white rounded-xl shadow-lg overflow-hidden">
+//             <div className="sticky top-0 bg-white z-10 p-4 border-b border-gray-200">
+//               <div className="relative">
+//                 <input
+//                   type="text"
+//                   placeholder="Search FAQs..."
+//                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                   value={searchTerm}
+//                   onChange={(e) => setSearchTerm(e.target.value)}
+//                 />
+//                 <FaSearch className="absolute left-3 top-3 text-gray-400" />
+//               </div>
+//             </div>
+//             <div className="divide-y divide-gray-200 max-h-[calc(100vh-200px)] overflow-y-auto">
+//               {filteredFAQs.map((faq) => (
+//                 <div key={faq.id} className="p-4 transition duration-300 ease-in-out hover:bg-gray-50">
+//                   <button
+//                     className="flex justify-between items-center w-full text-left"
+//                     onClick={() => toggleFAQ(faq.id)}
+//                     aria-expanded={openFAQ === faq.id}
+//                     aria-controls={`faq-answer-${faq.id}`}
+//                   >
+//                     <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+//                     <motion.div
+//                       animate={{ rotate: openFAQ === faq.id ? 180 : 0 }}
+//                       transition={{ duration: 0.3 }}
+//                     >
+//                       {openFAQ === faq.id ? (
+//                         <FaChevronUp className="text-blue-500" />
+//                       ) : (
+//                         <FaChevronDown className="text-gray-400" />
+//                       )}
+//                     </motion.div>
+//                   </button>
+//                   <AnimatePresence>
+//                     {openFAQ === faq.id && (
+//                       <motion.p
+//                         key={`faq-answer-${faq.id}`}
+//                         initial={{ opacity: 0, height: 0 }}
+//                         animate={{ opacity: 1, height: 'auto' }}
+//                         exit={{ opacity: 0, height: 0 }}
+//                         transition={{ duration: 0.3 }}
+//                         className="mt-2 text-gray-600"
+//                       >
+//                         {faq.answer}
+//                       </motion.p>
+//                     )}
+//                   </AnimatePresence>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default FAQPage;

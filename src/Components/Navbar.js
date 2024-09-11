@@ -8,9 +8,8 @@ const Navbar = () => {
                     <div className="flex flex-wrap justify-between items-center min-w-full max-w-screen-xl p-4">
                         <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
                         <div className="flex items-center space-x-6 rtl:space-x-reverse">
-                            <Link href="/" className="text-md  text-blue-400 dark:text-blue-500 hover:underline">Main</Link>
-                            <Link href="/SignUp" className="text-md  text-blue-400 dark:text-blue-500 hover:underline">Sign Up</Link>
-                            <Link href="/Login" className="text-md  text-blue-400 dark:text-blue-500 hover:underline">Login</Link>
+                            <Link href="/pages/SignUp" className="text-md  text-blue-400 dark:text-blue-500 hover:underline">Sign Up</Link>
+                            <Link href="/pages/Login" className="text-md  text-blue-400 dark:text-blue-500 hover:underline">Login</Link>
                         </div>
                     </div>
                 </nav>

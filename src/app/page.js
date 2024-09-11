@@ -1,13 +1,63 @@
-import React from 'react'
+"use client"
+import useUser from '@/hooks/useUser'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { v4 as uuidv4 } from 'uuid';
+uuidv4();
 
 const page = () => {
+  // const [user, setUser] = useUser()
+  const {user, setUser} = useUser()
+  const [roomID, setRoomID] = useState("")
+  const router = useRouter()
+
+  useEffect(() => {
+    setUser("")
+  }, [])
+
+
   return (
     <>
-      <div className='background-custom '>
-        im main page
+      <div className='text-black flex justify-center items-center flex-col gap-y-4 background-custom '>
+        <div className=''>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+            placeholder='Enter Your Name :' />
+        </div>
+          <div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="roomID"
+                value={roomID}
+                onChange={(e) => setRoomID(e.target.value)}
+                placeholder='Enter Room ID :' />
+            </div>
+            <div>
+              <button
+                className='border p-2'
+                type="button"
+                disabled={!user}
+                onClick={() => router.push(`pages/Room/${roomID}`)}>Go to Room</button>
+            </div>
+            <div>
+              <div>
+                <button className='text-blue-500 hover:underline' onClick={() => router.push(`pages/Room/${uuidv4()}`)}>
+                  Or create a new meeting
+                </button>
+              </div>
+            </div>
+          </div>
       </div>
     </>
   )
 }
 
 export default page
+
+// zustand = Dependencies, this a global state management system 

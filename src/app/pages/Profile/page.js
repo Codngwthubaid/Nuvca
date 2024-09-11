@@ -4,7 +4,7 @@ import Logout from "../Logout/page"
 const page = () => {
     return (
         <>
-            <div>Im Profile</div>
+            <div className='text-black'>Im Profile</div>
             <Logout />
         </>
     )
