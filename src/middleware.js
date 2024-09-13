@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export function middleware(request) {
     const path = request.nextUrl.pathname
-    const isPublicPath = path === "/Login" || path === "/SignUp"
+    const isPublicPath = path === "/pages/Login" || path === "/pages/SignUp"
     const Token = request.cookies.get("Token")?.value || null;
     console.log("Token:", Token);
 
@@ -25,10 +25,10 @@ export function middleware(request) {
 export const config = {
     matcher:
         [
-            "pages/Login",
-            "pages/SignUp",
-            "pages/Profile",
-            "pages/Features",
+            "/pages/Login",
+            "/pages/SignUp",
+            "/pages/Profile",
+            "/pages/Features",
             "/"
         ]
 }

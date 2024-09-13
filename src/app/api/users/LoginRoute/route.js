@@ -44,10 +44,6 @@ export async function POST(request) {
             console.log("Generated Token:", Token);
         } catch (err) {
             console.log("Error generating token:", err);
-            return NextResponse.json({
-                message: "Internal Server Error",
-                status: 500
-            });
         }
 
         // Creating Response
@@ -59,7 +55,9 @@ export async function POST(request) {
         response.cookies.set("Token", Token, {
             httpOnly: true,
         });
-        return response;
+        console.log(response);
+        
+        // return response;
 
     } catch (error) {
         return NextResponse.json(
