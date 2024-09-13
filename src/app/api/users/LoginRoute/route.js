@@ -40,7 +40,7 @@ export async function POST(request) {
 
         // TokenSetting
         try {
-            const Token =await jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+            const Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
             console.log("Generated Token:", Token);
         } catch (err) {
             console.log("Error generating token:", err);

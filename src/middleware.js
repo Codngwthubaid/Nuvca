@@ -10,13 +10,13 @@ export function middleware(request) {
     if (isPublicPath && Token) {
         console.log("Redirecting to Profile");
         return NextResponse.redirect(
-            new URL("/pages/Profile", request.nextUrl)
+            new URL("/", request.nextUrl)
         )
     }
     if (!isPublicPath && !Token) {
         console.log("Redirecting to Login")
         return NextResponse.redirect(
-            new URL("/pages/Login", request.nextUrl)
+            new URL("/pages/SignUp", request.nextUrl)
         )
     }
 }
