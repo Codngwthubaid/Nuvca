@@ -7,7 +7,6 @@ require('dotenv').config();
 connect();
 
 export async function POST(request) {
-    try {
         const resBody = await request.json();
         const { userName, password } = resBody;
         console.log(resBody);
@@ -38,13 +37,11 @@ export async function POST(request) {
             userName: userExisting.userName
         };
 
+        console.log(process.env.TOKEN_SECRET);
+
         // TokenSetting
-        try {
-            const Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
-            console.log("Generated Token:", Token);
-        } catch (err) {
-            console.log("Error generating token:", err);
-        }
+        const Token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+        console.log("Generated Token:", Token);
 
         // Creating Response
         const response = NextResponse.json({
@@ -55,14 +52,6 @@ export async function POST(request) {
         response.cookies.set("Token", Token, {
             httpOnly: true,
         });
-        console.log(response);
-        
-        // return response;
 
-    } catch (error) {
-        return NextResponse.json(
-            { error: error.message },
-            { status: 500 }
-        )
-    }
+        return response;
 }
