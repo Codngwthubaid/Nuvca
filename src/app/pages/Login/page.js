@@ -33,7 +33,7 @@ const Login = () => {
         transition: "Bounce",
       });
 
-      router.push("/pages/Room/[RoomID]");
+      router.push("/");
     } catch (error) {
       console.log("Login Failed!!!", error);  // Log the error object for better debugging
       toast('Login Failed! Please check your credentials and try again.', {
