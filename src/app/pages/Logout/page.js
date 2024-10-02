@@ -22,7 +22,7 @@ const page = () => {
                 theme: "dark",
                 transition: "Bounce",
             })
-            router.push("/Login")
+            router.push("/pages/Login")
 
         } catch (error) {
             console.log(error.message);
