@@ -44,7 +44,8 @@ const page = () => {
                 theme="dark"
                 transition="Bounce"
             />
-            <button
+            <button 
+            className='text-black'
                 onClick={Logout}
                 type="submit">
                 Logout
