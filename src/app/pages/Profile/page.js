@@ -12,7 +12,6 @@ const page = () => {
         console.log(response);
         setUser(response.data.data._id)
     }
-
     return (
         <>
             <div className='text-black'>Im Profile</div>

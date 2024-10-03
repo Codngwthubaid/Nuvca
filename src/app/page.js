@@ -1,6 +1,7 @@
 "use client"
 import UserHook from '@/hooks/useUser';
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import {
   Sheet,
@@ -60,6 +61,9 @@ const page = () => {
                 </div>
               </nav>
               <div>
+
+<Link href="/pages/Profile">Profile</Link>
+
                 <div className=''>
                   <input
                     type="text"
