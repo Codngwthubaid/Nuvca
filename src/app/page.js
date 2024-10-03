@@ -31,9 +31,9 @@ const page = () => {
     <>
       <section>
         <article className='background-custom'>
-          <div className='text-black flex justify-center items-center flex-col gap-y-4'>
-            <nav className='p-5 border-2 border-red-700 flex justify-between items-center w-full'>
-              <div className='gap-x-1 flex justify-center items-center border-2 border-red-500'>
+          <div className='text-white flex justify-center items-center flex-col gap-y-4'>
+            <nav className='p-5 flex justify-between items-center w-full'>
+              <div className='gap-x-1 flex justify-center items-center'>
                 <div>
                   <Image
                     src="/img/favicon.png"
@@ -46,44 +46,57 @@ const page = () => {
                   <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold text-gray-300">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
                 </div>
               </div>
-              <div className='gap-x-4 border-4 border-green-500 flex w-fit text-white justify-between'>
+              <div className='gap-x-4 flex w-fit text-white justify-between'>
                 <div>day and date</div>
                 <div>
                   <Link href="/pages/Profile">Profile</Link>
                 </div>
               </div>
             </nav>
-            <main className='border-2 border-pink-500 w-full flex justify-around items-center'>
-              <section>
+            <main className='w-full flex justify-around items-center h-[80vh]'>
+              <section className=' sm:w-1/2 flex flex-col gap-y-5'>
+                <div className='flex justify-center items-start flex-col gap-y-5'>
+                  <div className='text-5xl font-semibold'>Video calls and meeting for everyone</div>
+                  <div className='text-xl '>Connect, collaborate, and celebrate from anywhere with NU-VCA</div>
+                </div>
                 <div>
-                  <div className=''>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      value={user}
-                      onChange={(e) => setUser(e.target.value)}
-                      placeholder='Enter Your Name :' />
-                  </div>
                   <div>
-                    <div>
-                      <input
-                        type="text"
-                        name="name"
-                        id="roomID"
-                        value={roomID}
-                        onChange={(e) => SetRoomID(e.target.value)}
-                        placeholder='Enter Room ID :' />
+                    <div className='flex  items-center flex-col gap-y-5'>
+                      <div className=' flex gap-x-10 justify-center items-center'>
+                        <div className='text-black'>
+                          <input
+                            className='p-2 rounded-xl'
+                            type="text"
+                            name="name"
+                            id="name"
+                            value={user}
+                            onChange={(e) => setUser(e.target.value)}
+                            placeholder='Enter Name' />
+                        </div>
+                        <div>
+                          <div className='text-black'>
+                            <input
+                              className='p-2 rounded-xl'
+                              type="text"
+                              name="name"
+                              id="roomID"
+                              value={roomID}
+                              onChange={(e) => SetRoomID(e.target.value)}
+                              placeholder='Enter Room ID ' />
+                          </div>
+                        </div>
+                      </div>
+                      <div className='flex justify-center items-center'>
+                        <button
+                          className='p-2 hover:cursor-pointer border-2 rounded-xl'
+                          type="button"
+                          disabled={!user}
+                          onClick={() => router.push(`pages/Room/${roomID}`)}>Go to Room</button>
+                      </div>
                     </div>
+                    <div className='bg-white h-[1px] w-11/12 mx-auto my-6'></div>
                     <div>
-                      <button
-                        className='border p-2'
-                        type="button"
-                        disabled={!user}
-                        onClick={() => router.push(`pages/Room/${roomID}`)}>Go to Room</button>
-                    </div>
-                    <div>
-                      <div>
+                      <div className='text-center'>
                         <button className='text-blue-500 hover:underline' onClick={() => router.push(`pages/Room/${uuidv4()}`)}>
                           Or create a new meeting
                         </button>
@@ -92,15 +105,40 @@ const page = () => {
                   </div>
                 </div>
               </section>
-              <section>
+              <section className='sm:w-2/5 flex justify-center items-center'>
                 <Carousel className="w-full max-w-xs">
                   <CarouselContent>
                     {Array.from({ length: 5 }).map((_, index) => (
                       <CarouselItem key={index}>
-                        <div className="p-1">
+                        <div className="">
                           <Card>
-                            <CardContent className="flex aspect-square items-center justify-center p-6">
+                            {/* <CardContent className="flex aspect-square items-center justify-center p-6">
                               <span className="text-4xl font-semibold">{index + 1}</span>
+                            </CardContent> */}
+                            <CardContent>
+                              <div>
+                                <Image
+                                  src="/img/ImgFirstMain.jpg"
+                                  width={500}
+                                  height={500}
+                                  alt="Picture of the author"
+                                />
+                              </div>
+                            </CardContent>
+                          </Card>
+                          <Card>
+                            {/* <CardContent className="flex aspect-square items-center justify-center p-6">
+                              <span className="text-4xl font-semibold">{index + 1}</span>
+                            </CardContent> */}
+                            <CardContent>
+                              <div>
+                                <Image
+                                  src="/img/ImgSecondMain.jpg"
+                                  width={500}
+                                  height={500}
+                                  alt="Picture of the author"
+                                />
+                              </div>
                             </CardContent>
                           </Card>
                         </div>
@@ -114,7 +152,7 @@ const page = () => {
             </main>
           </div>
         </article>
-      </section>
+      </section >
 
     </>
   )
