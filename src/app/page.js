@@ -3,16 +3,19 @@ import UserHook from '@/hooks/useUser';
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 import { v4 as uuidv4 } from 'uuid';
+import Image from 'next/image';
 uuidv4();
+
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 const page = () => {
   const { user, setUser } = UserHook()
@@ -23,86 +26,95 @@ const page = () => {
     setUser("")
   }, [])
 
-  const CurrentDate = () => {
-    useEffect(() => {
-      let date = new Date();
-      console.log(date);
-    }, []);
-  }
-
 
   return (
     <>
-      <main>
-        <section>
-          <article className='background-custom'>
-            <div className='text-black flex justify-center items-center flex-col gap-y-4'>
-              <nav className='border-2 border-red-700 flex justify-between items-center w-full'>
+      <section>
+        <article className='background-custom'>
+          <div className='text-black flex justify-center items-center flex-col gap-y-4'>
+            <nav className='p-5 border-2 border-red-700 flex justify-between items-center w-full'>
+              <div className='gap-x-1 flex justify-center items-center border-2 border-red-500'>
                 <div>
-                  <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold text-[#121b30]">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
-                </div>
-                <div className='border-4 border-green-500 flex w-fit text-white justify-between'>
-                  <div>{CurrentDate()}</div>
-                  <div>UserName</div>
-                  <div>
-                    <Sheet>
-                      <SheetTrigger>Open</SheetTrigger>
-                      <SheetContent>
-                        <SheetHeader>
-                          <SheetTitle>Are you absolutely sure?</SheetTitle>
-                          <SheetDescription>
-                            This action cannot be undone. This will permanently delete your account
-                            and remove your data from our servers.
-                          </SheetDescription>
-                        </SheetHeader>
-                      </SheetContent>
-                    </Sheet>
-                  </div>
-                </div>
-              </nav>
-              <div>
-
-<Link href="/pages/Profile">Profile</Link>
-
-                <div className=''>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={user}
-                    onChange={(e) => setUser(e.target.value)}
-                    placeholder='Enter Your Name :' />
+                  <Image
+                    src="/img/favicon.png"
+                    width={40}
+                    height={40}
+                    alt="Picture of the author"
+                  />
                 </div>
                 <div>
-                  <div>
+                  <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold text-gray-300">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
+                </div>
+              </div>
+              <div className='gap-x-4 border-4 border-green-500 flex w-fit text-white justify-between'>
+                <div>day and date</div>
+                <div>
+                  <Link href="/pages/Profile">Profile</Link>
+                </div>
+              </div>
+            </nav>
+            <main className='border-2 border-pink-500 w-full flex justify-around items-center'>
+              <section>
+                <div>
+                  <div className=''>
                     <input
                       type="text"
                       name="name"
-                      id="roomID"
-                      value={roomID}
-                      onChange={(e) => SetRoomID(e.target.value)}
-                      placeholder='Enter Room ID :' />
-                  </div>
-                  <div>
-                    <button
-                      className='border p-2'
-                      type="button"
-                      disabled={!user}
-                      onClick={() => router.push(`pages/Room/${roomID}`)}>Go to Room</button>
+                      id="name"
+                      value={user}
+                      onChange={(e) => setUser(e.target.value)}
+                      placeholder='Enter Your Name :' />
                   </div>
                   <div>
                     <div>
-                      <button className='text-blue-500 hover:underline' onClick={() => router.push(`pages/Room/${uuidv4()}`)}>
-                        Or create a new meeting
-                      </button>
+                      <input
+                        type="text"
+                        name="name"
+                        id="roomID"
+                        value={roomID}
+                        onChange={(e) => SetRoomID(e.target.value)}
+                        placeholder='Enter Room ID :' />
+                    </div>
+                    <div>
+                      <button
+                        className='border p-2'
+                        type="button"
+                        disabled={!user}
+                        onClick={() => router.push(`pages/Room/${roomID}`)}>Go to Room</button>
+                    </div>
+                    <div>
+                      <div>
+                        <button className='text-blue-500 hover:underline' onClick={() => router.push(`pages/Room/${uuidv4()}`)}>
+                          Or create a new meeting
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </article>
-        </section>
-      </main>
+              </section>
+              <section>
+                <Carousel className="w-full max-w-xs">
+                  <CarouselContent>
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <CarouselItem key={index}>
+                        <div className="p-1">
+                          <Card>
+                            <CardContent className="flex aspect-square items-center justify-center p-6">
+                              <span className="text-4xl font-semibold">{index + 1}</span>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </section>
+            </main>
+          </div>
+        </article>
+      </section>
 
     </>
   )
