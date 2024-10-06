@@ -26,21 +26,21 @@ export const sendMail = async ({ email, emailType, userID }) => {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             port: 465,
-            secure: true, // true for port 465, false for other ports
+            secure: true,
             auth: {
-                user: `${email}`,
-                pass: process.env.password,
+                user: "codngwthubaid@gmail.com",
+                pass: process.env.PASSWORD,
             },
         });
 
         const mailInfo = await transporter.sendMail({
-            from: `${email}`, // sender address
-            to: "codngwthubaid@gmail.com", // list of receivers
-            subject: emailType === "VERIFY" ? "Verify your email..." : "Reset your Password", // Subject line
-            text: "Hello world?", // plain text body
+            from: "codngwthubaid@gmail.com",
+            to: email,
+            subject: emailType === "VERIFY" ? "Verify your email..." : "Reset your Password",
+            text: "Hello world?",
             html: `<p> Click <a href ="${process.env.DOMAIN}/verifyemail=${hashToken}">here</a> to ${emailType === "VERIFY" ? "Verify your email" : "reset your password"}
             orr copy paste the link below in your browser <br> ${process.env.DOMAIN}/verifyemail=${hashToken}
-            </p>` // html body
+            </p>`
         });
 
         const mailResponse = await transporter.sendMail(mailInfo)

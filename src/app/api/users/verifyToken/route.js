@@ -5,23 +5,40 @@ import connect from "@/dbConfig/dbconfig";
 connect()
 
 export async function POST(request) {
-    const reqBody = await request.json()
-    const { Token } = reqBody
-    console.log(Token);
+    try {
+        const reqBody = await request.json()
+        const { Token } = reqBody
+        console.log(Token);
 
-    const user = User.findOne(
-        {
-            verifyToken: Token,
-            verifyTokenExpiry: { $gt: Date.now() }
-        })
+        const user = User.findOne(
+            {
+                verifyToken: Token,
+                verifyTokenExpiry: { $gt: Date.now() }
+            })
 
-    if (!user) {
+        if (!user) {
+            return NextResponse.json(
+                { error: "Invalid Token" },
+                { status: 400 }
+            )
+        }
+        console.log(user);
+
+        user.isVerified = true;
+        user.verifyToken = undefined;
+        user.verifyTokenExpiry = undefined;
+        await user.save()
+
         return NextResponse.json(
-            { error: "Invalid Token" },
-            { status: 400 }
+            {message: "Email is successfully Verified"},
+            {status: true}
+        )
+
+    } catch (error) {
+        return NextResponse.json(
+            { error: error.message },
+            { status: 500 }
         )
     }
-    console.log(user);
-    
 
 }

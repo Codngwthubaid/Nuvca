@@ -1,7 +1,8 @@
 import connect from "@/dbConfig/dbconfig"
+import { sendMail } from "@/helpers/nodemailer"
 import User from "@/models/userModel"
 import bcrypt from "bcryptjs"
-import {NextResponse} from "next/server"
+import { NextResponse } from "next/server"
 
 connect()
 
@@ -26,20 +27,24 @@ export async function POST(request) {
 
         // Creating new User if not exist
         const newUser = new User({
-            userName, 
-            email, 
-            tel, 
-            password:hashingProcess
+            userName,
+            email,
+            tel,
+            password: hashingProcess
         })
 
         // SavingProcess of new user
         const saveUser = await newUser.save()
         console.log(saveUser);
-        return NextResponse.json(
-            {message: "User Successfully Saved"},
-            {success: true},
-            saveUser
-        )
+
+        // Send Verification email
+        sendMail({ email, emailType: "VERIFY", userID: saveUser._id })
+
+        return NextResponse.json({
+            message: "User Successfully Saved",
+            success: true,
+            user: saveUser
+        })
 
     } catch (error) {
         return NextResponse.json(
