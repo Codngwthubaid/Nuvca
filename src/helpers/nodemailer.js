@@ -23,15 +23,14 @@ export const sendMail = async ({ email, emailType, userID }) => {
             )
         }
 
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            port: 465,
-            secure: true,
+        var transporter = nodemailer.createTransport({
+            host: "sandbox.smtp.mailtrap.io",
+            port: 2525,
             auth: {
-                user: "codngwthubaid@gmail.com",
-                pass: process.env.PASSWORD,
-            },
-        });
+              user: "78b6ca7c841f26",
+              pass: "2e5b02e72a87d9"
+            }
+          });
 
         const mailInfo = await transporter.sendMail({
             from: "codngwthubaid@gmail.com",
