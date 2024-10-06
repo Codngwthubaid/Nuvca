@@ -6,6 +6,13 @@ import Link from "next/link";
 import MainPicture from "@/Components/MainPicture";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -55,7 +62,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="background-custom lg:min-h-[88vh">
+      <main className="background-custom lg:min-h-[88vh]">
         <section className="pt-[7vw]">
           {/* First */}
           <section>
@@ -281,97 +288,52 @@ export default function Home() {
               <div className="sm:w-10/12 mx-auto flex justify-between items-center py-10">
                 <div className="sm:w-[35vw] text-4xl font-semibold  min-h-[70vh]">Frequently asked questions about online video calling</div>
                 <div className="sm:w-[43.33vw]  h-[70vh] overflow-y-scroll no-scrollbar">
-                  <div className="text-2xl cursor-pointer">Can I make voice-only calls with a video calling app?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">Are certain devices better for making video calls?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">What can I use video calls for?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">Can I use video call with people outside of my organization?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">Should I pay for video calling software?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">Why should my business use video calling software?</div>
-                  <div className="w-[43.33vw] bg-blue-700 mx-auto h-[1px] my-5"></div>
-                  <div className="text-2xl cursor-pointer">What’s the difference between video calling and video chatting?</div>
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">Can I make voice-only calls with a video calling app?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes, NU-VCA, like many video calling apps, allows voice-only calls. Users can disable their camera or join audio-only, preserving bandwidth and privacy. This feature is useful when video isn't necessary or possible due to poor internet connection. NU-VCA's versatility makes it suitable for various communication needs, whether you prefer video or voice-only interactions.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">Are certain devices better for making video calls?</AccordionTrigger>
+                      <AccordionContent>
+                        While NU-VCA works on various devices, certain hardware can enhance your video calling experience. Devices with high-quality cameras, powerful processors, and ample RAM tend to perform better. For optimal NU-VCA calls, consider using recent smartphones, tablets, or computers with built-in or external webcams. Ensure your device has a stable internet connection for the best video and audio quality.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">What can I use video calls for?</AccordionTrigger>
+                      <AccordionContent>
+                        NU-VCA offers versatile video calling capabilities for various purposes. You can use it for remote work meetings, virtual family gatherings, online education, telemedicine appointments, and social catch-ups with friends. NU-VCA enables face-to-face communication regardless of distance, making it ideal for job interviews, virtual events, collaborative projects, and even virtual tours. It's a powerful tool for maintaining connections in our increasingly digital world.
+                      </AccordionContent>
+                    </AccordionItem>
+                    
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">Can I use video call with people outside of my organization?</AccordionTrigger>
+                      <AccordionContent>
+                      Yes, NU-VCA allows you to connect with people outside your organization. You can easily set up video calls with clients, partners, or friends by sharing a meeting link or inviting them via email. NU-VCA's cross-organization functionality ensures seamless communication, regardless of the participant's affiliation. This feature makes NU-VCA versatile for both professional and personal use across different networks.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-5">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">Should I pay for video calling software?</AccordionTrigger>
+                      <AccordionContent>
+                      While NU-VCA likely offers a free version with basic features, paying for premium tiers can provide additional benefits. These may include longer meeting durations, higher participant limits, advanced security features, and better video quality. Consider your usage needs: if you require professional-grade features or frequently host large meetings, NU-VCA's paid version could offer valuable enhancements to your video calling experience.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
+                      <AccordionTrigger className="text-xl cursor-pointer text-start">What’s the difference between video calling and video chatting?</AccordionTrigger>
+                      <AccordionContent>
+                      In NU-VCA, video calling and video chatting are often used interchangeably, but there can be subtle differences. Video calling typically refers to more structured, often scheduled conversations, like business meetings or interviews. Video chatting usually implies more casual, spontaneous interactions. However, NU-VCA's platform supports both formal and informal video communications, offering features suitable for professional calls and relaxed chats alike.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
               </div>
             </article>
           </section>
         </section>
-      </main>
+      </main >
       <Footer />
     </>
   );
 }
-
-
-
-// const FAQPage = () => {
-
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-//       <div className="max-w-7xl mx-auto">
-//         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-12">Frequently Asked Questions</h1>
-//         <div className="flex flex-col lg:flex-row gap-8">
-//           {/* Left Section */}
-//           <div className="w-full lg:w-2/3 bg-white rounded-xl shadow-lg overflow-hidden">
-//             <div className="sticky top-0 bg-white z-10 p-4 border-b border-gray-200">
-//               <div className="relative">
-//                 <input
-//                   type="text"
-//                   placeholder="Search FAQs..."
-//                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                   value={searchTerm}
-//                   onChange={(e) => setSearchTerm(e.target.value)}
-//                 />
-//                 <FaSearch className="absolute left-3 top-3 text-gray-400" />
-//               </div>
-//             </div>
-//             <div className="divide-y divide-gray-200 max-h-[calc(100vh-200px)] overflow-y-auto">
-//               {filteredFAQs.map((faq) => (
-//                 <div key={faq.id} className="p-4 transition duration-300 ease-in-out hover:bg-gray-50">
-//                   <button
-//                     className="flex justify-between items-center w-full text-left"
-//                     onClick={() => toggleFAQ(faq.id)}
-//                     aria-expanded={openFAQ === faq.id}
-//                     aria-controls={`faq-answer-${faq.id}`}
-//                   >
-//                     <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
-//                     <motion.div
-//                       animate={{ rotate: openFAQ === faq.id ? 180 : 0 }}
-//                       transition={{ duration: 0.3 }}
-//                     >
-//                       {openFAQ === faq.id ? (
-//                         <FaChevronUp className="text-blue-500" />
-//                       ) : (
-//                         <FaChevronDown className="text-gray-400" />
-//                       )}
-//                     </motion.div>
-//                   </button>
-//                   <AnimatePresence>
-//                     {openFAQ === faq.id && (
-//                       <motion.p
-//                         key={`faq-answer-${faq.id}`}
-//                         initial={{ opacity: 0, height: 0 }}
-//                         animate={{ opacity: 1, height: 'auto' }}
-//                         exit={{ opacity: 0, height: 0 }}
-//                         transition={{ duration: 0.3 }}
-//                         className="mt-2 text-gray-600"
-//                       >
-//                         {faq.answer}
-//                       </motion.p>
-//                     )}
-//                   </AnimatePresence>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default FAQPage;
