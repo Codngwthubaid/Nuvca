@@ -21,7 +21,6 @@ export default function VerifyEmail() {
         }
     }
 
-
     useEffect(() => {
         if (Token.length > 0) {
             verifyUserEmail()
@@ -35,7 +34,7 @@ export default function VerifyEmail() {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center text-black">
                 <h1 className="text-4xl">Verify Email</h1>
                 <h2>{Token ? `${Token}` : "No Token"}</h2>
 

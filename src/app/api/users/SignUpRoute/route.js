@@ -38,8 +38,8 @@ export async function POST(request) {
         console.log(saveUser);
 
         // Send Verification email
-        sendMail({ email, emailType: "VERIFY", userID: saveUser._id })
-
+        await sendMail({ email, emailType: "VERIFY", userID: saveUser._id })
+        
         return NextResponse.json({
             message: "User Successfully Saved",
             success: true,

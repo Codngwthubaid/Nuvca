@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
         require: [true, "Please provide the password"],
         unique: true,
     },
-    isAmin: {
+    isAdmin: {
         type: String,
         default: false
     },

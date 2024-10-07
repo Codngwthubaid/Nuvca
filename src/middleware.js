@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export function middleware(request) {
     const path = request.nextUrl.pathname
-    const isPublicPath = path === "/pages/Login" || path === "/pages/SignUp" || path === "/pages/VerifyEmail"
+    const isPublicPath = path === "/pages/Login" || path === "/pages/SignUp"
     const Token = request.cookies.get("Token")?.value || null;
     console.log("Token:", Token);
 
