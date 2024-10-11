@@ -7,16 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 uuidv4();
 
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-
-
 const page = () => {
   const { user, setUser } = UserHook()
   const [roomID, SetRoomID] = useState("")
