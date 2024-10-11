@@ -22,7 +22,7 @@ const Login = () => {
       console.log("Login Successful", response.data);
 
       toast('Login Successful! Redirecting to your profile...', {
-        position: "bottom-center",
+        position: "bottom-right",
         autoClose: 3000,  // Shorten the duration since it's a success message
         hideProgressBar: false,
         closeOnClick: true,
@@ -37,7 +37,7 @@ const Login = () => {
     } catch (error) {
       console.log("Login Failed!!!", error);  // Log the error object for better debugging
       toast('Login Failed! Please check your credentials and try again.', {
-        position: "bottom-center",
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

@@ -9,10 +9,10 @@ const page = () => {
     const router = useRouter()
     const Logout = () => {
         try {
-            axios.get("api/users/LogoutRoute")
+            axios.get("/api/users/LogoutRoute")
             console.log("Logout Successfully !!!");
             toast('Processing !!!', {
-                position: "bottom-center",
+                position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -22,7 +22,7 @@ const page = () => {
                 theme: "dark",
                 transition: "Bounce",
             })
-            router.push("/pages/Login")
+            router.push("/pages/SignUp")
 
         } catch (error) {
             console.log(error.message);
@@ -32,7 +32,7 @@ const page = () => {
     return (
         <>
             <ToastContainer
-                position="bottom-center"
+                position="bottom-right"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}

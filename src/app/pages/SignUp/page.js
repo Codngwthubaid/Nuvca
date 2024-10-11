@@ -23,7 +23,7 @@ const SignUpPage = () => {
             const response = await axios.post("/api/users/SignUpRoute", user)
             console.log("SignUp Successfull", response.data);
             toast('Processing !!!', {
-                position: "bottom-center",
+                position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
