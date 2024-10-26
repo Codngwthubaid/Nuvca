@@ -63,7 +63,7 @@ const page = () => {
                           placeholder='Enter Name' />
                       </div>
                       <div>
-                        <div className='text-black'>
+                        <div className='text-white'>
                           <input
                             className='p-2 rounded-xl'
                             type="text"
