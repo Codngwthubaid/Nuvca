@@ -12,8 +12,8 @@ const page = ({ params }) => {
 
   let myMeeting = async (element) => {
     // generate Kit Token
-    const appID = 1348137364;
-    const serverSecret = "987d703788b0185b8dd388812abf6e09";
+    const appID = 164815597;
+    const serverSecret = "09911a3df0bcd43e334f236126ea2f5f";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
