@@ -31,26 +31,15 @@ export default function Home() {
                 height={100}
                 alt="Picture of the author"
               />
-              <div className="mx-auto w-11/12 lg:w-1/2 flex justify-center items-center lg:items-start  flex-col gap-y-4 ">
+              <div className="mx-auto w-11/12 lg:w-1/2 flex justify-center items-center lg:items-start flex-col gap-y-4 ">
                 <div className="flex flex-col gap-y-3">
                   <div className="font-semibold text-4xl">NU - Video Calling Application</div>
                   <div className="font-extralight">
                     Introducing NU - VCA, your ultimate video calling solution designed for seamless communication. Whether for personal or professional use, our platform offers crystal-clear video and audio quality, ensuring every conversation is as natural as in-person. Built with cutting-edge technology, NU - VCA provides a secure, reliable, and intuitive interface, allowing you to connect effortlessly anytime, anywhere. Experience the future of communication with NU - VCA, where clarity meets convenience.
                   </div>
-                  <div className="font-semibold text-lg">Try it free for 30 days.</div>
                 </div>
                 <div>
-                  <button
-                    type="submit"
-                    className="sm:w-[43.33vw] bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl text-white  flex justify-center items-center gap-x-2">
-                    <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
-                      <path fillRule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clipRule="evenodd" />
-                    </svg>
-                    <div className="text-base">Sign in with Google</div>
-                  </button>
-                </div>
-                <div>
-                  <button type="submit" className="sm:w-[43.33vw] bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl">
+                  <button type="submit" className="sm:w-[43.33vw] bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl my-10">
                     <Link href="/pages/SignUp" className="text-base">Get Started</Link>
                   </button>
                 </div>
@@ -300,7 +289,7 @@ export default function Home() {
                 </div>
                 <div>
                   <button type="submit" className=" bg-blue-700 hover:bg-blue-800 focus:ring-4 text-sm px-5 py-4 rounded-3xl">
-                    <Link href="/Login" className="text-base text-white">Get Started</Link>
+                    <Link href="/pages/Login" className="text-base text-white">Get Started</Link>
                   </button>
                 </div>
               </div>
