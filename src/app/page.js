@@ -3,6 +3,7 @@ import UserHook from '@/hooks/useUser';
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
+import LogOut from "@/Components/LogOut"
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 uuidv4();
@@ -35,7 +36,7 @@ const page = () => {
                 <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold text-gray-300">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
               </div>
             </div>
-
+            <div><LogOut /></div>
           </nav>
           <main className='w-full flex justify-around items-center flex-col-reverse lg:flex-row p-10 gap-y-10'>
             <section className='lg:w-1/2 flex flex-col gap-y-5'>
