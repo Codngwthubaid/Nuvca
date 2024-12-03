@@ -35,12 +35,7 @@ const page = () => {
                 <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span className='text-slate-600'>&#60;</span><span className="font-bold text-gray-300">NU-</span><span className="font-bold text-blue-500">VCA</span><span className='text-slate-600'>&#47;&#62;</span></div>
               </div>
             </div>
-            <div className='gap-x-4 flex w-fit text-white justify-center'>
-              <div>DD</div>
-              <div>
-                <Link href="/pages/Profile">Profile</Link>
-              </div>
-            </div>
+
           </nav>
           <main className='w-full flex justify-around items-center flex-col-reverse lg:flex-row p-10 gap-y-10'>
             <section className='lg:w-1/2 flex flex-col gap-y-5'>
@@ -97,7 +92,7 @@ const page = () => {
             <section className='lg:w-2/5 flex justify-center items-center'>
               <Image
                 className="rounded-3xl"
-                src="/img/MainImg.webp"
+                src=""
                 width={400}
                 height={400}
                 alt="Picture of the author"
