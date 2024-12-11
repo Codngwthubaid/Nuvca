@@ -1,7 +1,6 @@
 "use client"
 import UserHook from '@/hooks/useUser';
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import LogOut from "@/Components/LogOut"
 import { v4 as uuidv4 } from 'uuid';
@@ -90,14 +89,16 @@ const page = () => {
                 </div>
               </div>
             </section>
-            <section className='lg:w-2/5 flex justify-center items-center'>
-              <Image
-                className="rounded-3xl"
-                src=""
-                width={400}
-                height={400}
-                alt="Picture of the author"
-              />
+            <section className='flex justify-center items-center'>
+              <video width="420" height="240" controls preload="none" autoPlay="on" muted>
+                <source src="/video/main.mp4" type="video/mp4" />
+                <track
+                  kind="subtitles"
+                  srcLang="en"
+                  label="English"
+                />
+                Your browser does not support the video tag.
+              </video>
             </section>
           </main>
 
