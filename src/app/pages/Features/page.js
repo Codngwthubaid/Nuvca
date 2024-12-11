@@ -3,13 +3,13 @@ import React from 'react';
 import Link from "next/link";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import Image from 'next/image';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import Image from 'next/image';
+} from "@/Components/ui/accordion"
 
 
 export default function Home() {
