@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 uuidv4();
 
-const page = () => {
+const Page = () => {
   const { user, setUser } = UserHook()
   const [roomID, SetRoomID] = useState("")
   const router = useRouter()
@@ -109,6 +109,6 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
 
 // zustand = Dependencies, this a global state management system 

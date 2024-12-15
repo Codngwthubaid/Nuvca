@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
-const page = () => {
+const LoyOut = () => {
     const router = useRouter()
     const Logout = () => {
         try {
@@ -53,4 +53,4 @@ const page = () => {
     )
 }
 
-export default page
+export default LoyOut

@@ -306,7 +306,7 @@ export default function Home() {
                     <AccordionItem value="item-1">
                       <AccordionTrigger className="text-xl cursor-pointer text-start">Can I make voice-only calls with a video calling app?</AccordionTrigger>
                       <AccordionContent>
-                        Yes, NU-VCA, like many video calling apps, allows voice-only calls. Users can disable their camera or join audio-only, preserving bandwidth and privacy. This feature is useful when video isn't necessary or possible due to poor internet connection. NU-VCA's versatility makes it suitable for various communication needs, whether you prefer video or voice-only interactions.
+                        Yes, NU-VCA, like many video calling apps, allows voice-only calls. Users can disable their camera or join audio-only, preserving bandwidth and privacy. This feature is useful when video isn&apos;t necessary or possible due to poor internet connection. NU-VCA&apos;s versatility makes it suitable for various communication needs, whether you prefer video or voice-only interactions.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
@@ -318,26 +318,26 @@ export default function Home() {
                     <AccordionItem value="item-3">
                       <AccordionTrigger className="text-xl cursor-pointer text-start">What can I use video calls for?</AccordionTrigger>
                       <AccordionContent>
-                        NU-VCA offers versatile video calling capabilities for various purposes. You can use it for remote work meetings, virtual family gatherings, online education, telemedicine appointments, and social catch-ups with friends. NU-VCA enables face-to-face communication regardless of distance, making it ideal for job interviews, virtual events, collaborative projects, and even virtual tours. It's a powerful tool for maintaining connections in our increasingly digital world.
+                        NU-VCA offers versatile video calling capabilities for various purposes. You can use it for remote work meetings, virtual family gatherings, online education, telemedicine appointments, and social catch-ups with friends. NU-VCA enables face-to-face communication regardless of distance, making it ideal for job interviews, virtual events, collaborative projects, and even virtual tours. It&apos;s a powerful tool for maintaining connections in our increasingly digital world.
                       </AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-4">
                       <AccordionTrigger className="text-xl cursor-pointer text-start">Can I use video call with people outside of my organization?</AccordionTrigger>
                       <AccordionContent>
-                        Yes, NU-VCA allows you to connect with people outside your organization. You can easily set up video calls with clients, partners, or friends by sharing a meeting link or inviting them via email. NU-VCA's cross-organization functionality ensures seamless communication, regardless of the participant's affiliation. This feature makes NU-VCA versatile for both professional and personal use across different networks.
+                        Yes, NU-VCA allows you to connect with people outside your organization. You can easily set up video calls with clients, partners, or friends by sharing a meeting link or inviting them via email. NU-VCA&apos;s cross-organization functionality ensures seamless communication, regardless of the participant&apos;s affiliation. This feature makes NU-VCA versatile for both professional and personal use across different networks.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-5">
                       <AccordionTrigger className="text-xl cursor-pointer text-start">Should I pay for video calling software?</AccordionTrigger>
                       <AccordionContent>
-                        While NU-VCA likely offers a free version with basic features, paying for premium tiers can provide additional benefits. These may include longer meeting durations, higher participant limits, advanced security features, and better video quality. Consider your usage needs: if you require professional-grade features or frequently host large meetings, NU-VCA's paid version could offer valuable enhancements to your video calling experience.
+                        While NU-VCA likely offers a free version with basic features, paying for premium tiers can provide additional benefits. These may include longer meeting durations, higher participant limits, advanced security features, and better video quality. Consider your usage needs: if you require professional-grade features or frequently host large meetings, NU-VCA&apos;s paid version could offer valuable enhancements to your video calling experience.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-6">
                       <AccordionTrigger className="text-xl cursor-pointer text-start">What	&apos;s the difference between video calling and video chatting?</AccordionTrigger>
                       <AccordionContent>
-                        In NU-VCA, video calling and video chatting are often used interchangeably, but there can be subtle differences. Video calling typically refers to more structured, often scheduled conversations, like business meetings or interviews. Video chatting usually implies more casual, spontaneous interactions. However, NU-VCA's platform supports both formal and informal video communications, offering features suitable for professional calls and relaxed chats alike.
+                        In NU-VCA, video calling and video chatting are often used interchangeably, but there can be subtle differences. Video calling typically refers to more structured, often scheduled conversations, like business meetings or interviews. Video chatting usually implies more casual, spontaneous interactions. However, NU-VCA&apos;s platform supports both formal and informal video communications, offering features suitable for professional calls and relaxed chats alike.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
