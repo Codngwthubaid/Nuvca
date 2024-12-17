@@ -90,7 +90,7 @@ const Page = () => {
               </div>
             </section>
             <section className='flex justify-center items-center'>
-              <video width="420" height="240" controls preload="none" autoPlay="on" muted>
+              <video className='border-2 rounded-2xl' width="420" height="240" preload="on" autoPlay muted>
                 <source src="/video/main.mp4" type="video/mp4" />
                 <track
                   kind="subtitles"
