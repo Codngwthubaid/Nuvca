@@ -19,7 +19,7 @@ const Sidebar = () => {
                         <Link
                             href={link.route}
                             key={link.label}
-                            className={cn("flex flex-1 justify-start  items-center gap-3 p-4", { 'bg-blue-900 rounded-lg': isActive })}
+                            className={cn("flex flex-1 justify-start h-fit items-center gap-3 px-4", { 'bg-blue-900 rounded-lg': isActive })}
                         >
                             <Image
                                 src={link.imageUrl}

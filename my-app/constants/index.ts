@@ -1,3 +1,5 @@
+import { title } from "process"
+
 export const sidebarLinks = [
     {
         label : "Home",
@@ -25,3 +27,5 @@ export const sidebarLinks = [
         imageUrl : "/icons/add-personal.svg"
     }
 ]
+
+
