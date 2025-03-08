@@ -8,7 +8,7 @@ import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
 
 const Meeting = ({ id }: { id: string }) => {
-  const { user, isLoaded } = useUser();
+  const { isLoaded } = useUser();
   const [isSetupCompleted, setIsSetupCompleted] = useState(false);
 
   const { call, isCallLoading } = useGetCallById(id);
