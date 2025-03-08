@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { LayoutList, UsersIcon } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import EndCallButton from './EndCallButton'
 import Loader from './Loader'
 
@@ -20,10 +20,11 @@ const MeetingRoom = () => {
   const isPersonalRoom = !!searchParams.get('personal')
   const [layout, setLayout] = useState<CallLayoutTypes>('speaker-left')
   const [showPaticipants, setShowParticipants] = useState(false)
-  const {useCallCallingState} = useCallStateHooks()
+  const { useCallCallingState } = useCallStateHooks()
   const callingState = useCallCallingState()
+  const Router = useRouter()
 
-  if(callingState !== CallingState.JOINED) return <Loader />
+  if (callingState !== CallingState.JOINED) return <Loader />
 
   const CallLayout = () => {
     switch (layout) {
@@ -48,7 +49,7 @@ const MeetingRoom = () => {
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
         <div className='fixed bottom-0 w-full flex justify-center items-center gap-3 flex-wrap'>
-          <CallControls />
+          <CallControls onLeave={() => { Router.push("/") }} />
 
           <DropdownMenu>
             <div>
@@ -74,7 +75,7 @@ const MeetingRoom = () => {
             onClick={() => setShowParticipants(!showPaticipants)}>
             <UsersIcon size={20} className='text-white' />
           </button>
-          
+
           {!isPersonalRoom && <EndCallButton />}
         </div>
       </div>

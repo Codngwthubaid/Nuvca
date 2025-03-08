@@ -11,7 +11,7 @@ interface homeCardProps {
 
 export const HomeCard = ({ className, img, title, desc, handleClick }: homeCardProps) => {
     return (
-        <div className={`${className} flex flex-col justify-between w-full px-4 py-6 min-h-[260px] rounded-lg xl:max-w-[270px] cursor-pointer`} onClick={handleClick}>
+        <div className={`${className} flex flex-col justify-between w-full px-4 py-6 rounded-lg sm:min-h-[150px] min-h-[250px] xl:max-w-[270px] cursor-pointer`} onClick={handleClick}>
             <div className='flex justify-center items-center size-12 rounded-xl'>
                 <Image
                     src={img || 'undefined logo'}

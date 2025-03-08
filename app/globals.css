@@ -135,3 +135,6 @@ html,
 body {
   font-family: "Baloo 2", sans-serif;
 }
+::-webkit-scrollbar {
+  display: none;
+}

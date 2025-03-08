@@ -7,6 +7,8 @@ import { useUser } from '@clerk/nextjs'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { toast } from "sonner"
 import DatePicker from "react-datepicker";
+import { Input } from "@/components/ui/input"
+
 
 const MeetingTypeList = () => {
     const router = useRouter()
@@ -62,28 +64,28 @@ const MeetingTypeList = () => {
                 title="New Meeting"
                 desc="Start an instant meeting"
                 handleClick={() => setMeetState("isInstantMeeting")}
-                className="bg-orange-500"
+                className="bg-orange-500 hover:bg-orange-600"
             />
             <HomeCard
                 img="/icons/join-meeting.svg"
                 title="Join Meeting"
                 desc="via invitation link"
                 handleClick={() => setMeetState("isJoiningMeeting")}
-                className="bg-green-500"
+                className="bg-green-500 hover:bg-green-600"
             />
             <HomeCard
                 img="/icons/schedule.svg"
                 title="Schedule Meeting"
                 desc="Plan your meeting"
                 handleClick={() => setMeetState("isScheduleMeeting")}
-                className="bg-blue-500"
+                className="bg-blue-500 hover:bg-blue-600"
             />
             <HomeCard
                 img="/icons/recordings.svg"
                 title="View Recordings"
                 desc="Check your recordings"
                 handleClick={() => router.push("/recordings")}
-                className="bg-purple-500"
+                className="bg-purple-500 hover:bg-purple-600"
             />
 
             {!callDetails ? (
@@ -138,6 +140,21 @@ const MeetingTypeList = () => {
                 buttonText="Start Meeting"
                 handleClick={createMeeting}
             />
+
+            <MeetingModel
+                isOpen={meetState === "isJoiningMeeting"}
+                onClose={() => setMeetState(undefined)}
+                title="Type link to join meeting"
+                className="text-center"
+                buttonText="Join Meeting"
+                handleClick={() => { router.push(callValues.link) }}
+            >
+                <Input
+                    placeholder='Meeting Link'
+                    className='bg-[#19232c] text-white'
+                    onChange={(e) => setCallValues({ ...callValues, link: e.target.value })}
+                />
+            </MeetingModel>
         </section>
     )
 }
