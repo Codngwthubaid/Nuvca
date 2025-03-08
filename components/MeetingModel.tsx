@@ -18,34 +18,20 @@ interface meetingModelProps {
 
 const MeetingModel = ({ isOpen, onClose, title, className, handleClick, buttonText, image, buttonIcon, children }: meetingModelProps) => {
 
-    const isValidUrl = (url: string | undefined): boolean => {
-        if (!url) return false;
-        try {
-            new URL(url); 
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
-        return (
+    return (
             <Dialog open={isOpen} onOpenChange={onClose}>
                 <DialogContent className="flex flex-col w-full max-w-[520px] gap-6 border-none bg-black text-white px-6 py-9">
                     <DialogTitle>
-                        <div className="flex flex-col gap-6">
-                            {isValidUrl(image) ? (
+                        <div className="flex items-center flex-col gap-6">
                                 <Image
-                                    src={image || ''}
+                                    src={image || "/icons/logo.svg"}
                                     alt="image"
                                     width={72}
                                     height={72}
                                 />
-                            ) : (
-                                <div style={{ width: 0, height: 0, backgroundColor: '#ccc' }} /> 
-                            )}
-
                             <h1 className={cn("text-3xl font-bold", className)}>{title}</h1>
                             {children}
-                            <Button className="w-full bg-blue-600" onClick={handleClick}>
+                            <Button className="w-full bg-blue-600 cursor-pointer hover:bg-blue-700" onClick={handleClick}>
                                 {typeof buttonIcon === 'string' && (
                                     <Image
                                         src={buttonIcon}

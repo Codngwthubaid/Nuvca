@@ -6,6 +6,7 @@ import MeetingModel from './MeetingModel'
 import { useUser } from '@clerk/nextjs'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { toast } from "sonner"
+import DatePicker from "react-datepicker";
 
 const MeetingTypeList = () => {
     const router = useRouter()
@@ -22,7 +23,7 @@ const MeetingTypeList = () => {
 
 
     const createMeeting = async () => {
-        if(!callValues.dateTime) toast("Please select a date and time");
+        if (!callValues.dateTime) toast("Please select a date and time");
         if (!user || !client) return;
 
         try {
@@ -43,16 +44,16 @@ const MeetingTypeList = () => {
 
             setCallDetails(call);
 
-            if(!callValues.desc) router.push(`/meeting/${call.id}`)
+            if (!callValues.desc) router.push(`/meeting/${call.id}`)
             toast("Meeting created successfully")
 
         } catch (error) {
             console.log(error);
             toast("failed to crearte meeting call")
-
         }
-
     }
+
+    const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
 
     return (
         <section className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4'>
@@ -84,6 +85,50 @@ const MeetingTypeList = () => {
                 handleClick={() => router.push("/recordings")}
                 className="bg-purple-500"
             />
+
+            {!callDetails ? (
+                <MeetingModel
+                    isOpen={meetState === "isScheduleMeeting"}
+                    onClose={() => setMeetState(undefined)}
+                    title="Create Meeting"
+                    handleClick={createMeeting}
+                >
+                    <div className='flex flex-col gap-3 w-full'>
+                        <label className='text-base font-normal text-white'>
+                            Add a description
+                        </label>
+                        <textarea
+                            rows={3}
+                            className='w-full rounded-md border-none bg-[#19232c] p-2 text-base'
+                            onChange={(e) => { setCallValues({ ...callValues, desc: e.target.value }) }}
+                        />
+                    </div>
+                    <div className='flex flex-col w-full gap-3'>
+                        <label className='text-base font-normal text-white'>
+                            Select date and time
+                        </label>
+                        <DatePicker
+                            showTimeSelect
+                            timeFormat='HH:mm'
+                            dateFormat='yyyy-MM-dd h:mm aa'
+                            className='w-full rounded-md border-none bg-[#19232c] p-2'
+                            timeIntervals={15}
+                            selected={callValues.dateTime}
+                            onChange={(date) => setCallValues({ ...callValues, dateTime: date! })} />
+                    </div>
+                </MeetingModel>
+            ) : (
+                <MeetingModel
+                    isOpen={meetState === "isScheduleMeeting"}
+                    onClose={() => setMeetState(undefined)}
+                    title="Meeting created"
+                    className="text-center"
+                    buttonText="Copy meeting link"
+                    image="/icons/check.svg"
+                    buttonIcon="/icons/copy.svg"
+                    handleClick={() => { navigator.clipboard.writeText(meetingLink); toast("Meeting link copied") }}
+                />
+            )}
 
             <MeetingModel
                 isOpen={meetState === "isInstantMeeting"}
