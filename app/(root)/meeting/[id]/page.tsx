@@ -7,7 +7,15 @@ import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
 
-const Meeting = ({ id }: { id: string }) => {
+// Define the props type for the page component
+interface MeetingPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const Meeting = ({ params }: MeetingPageProps) => {
+  const { id } = params; 
   const { isLoaded } = useUser();
   const [isSetupCompleted, setIsSetupCompleted] = useState(false);
 
