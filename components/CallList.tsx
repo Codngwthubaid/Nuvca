@@ -41,7 +41,7 @@ const CallList = ({ type }: { type: "upcoming" | "recordings" | "ended" }) => {
     const calls = getCalls();
     const noCallsMessage = getNoCallsMessage();
 
-    if(isLoading) return <Loader />
+    if (isLoading) return <Loader />
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -56,12 +56,12 @@ const CallList = ({ type }: { type: "upcoming" | "recordings" | "ended" }) => {
                                 : "/icons/recordings.svg"
                     }
                     title={(meeting as Call).state.custom?.desc}
-                    date={(meeting as Call).state.startsAt?.toLocaleString() || "N/A"} 
-                    isPreviousMeeting={}
-                    buttonIcon1={}
-                    handleClick={}
-                    link={}
-                    buttonText={}
+                    date={(meeting as Call).state.startsAt?.toLocaleString() || "N/A"}
+                    isPreviousMeeting={type === "ended"}
+                    buttonIcon1={type === "recordings" ? "/icons/play.svg" : undefined}
+                    handleClick={type === "recordings" ? () => Router.push(`${(meeting as CallRecording).url}`) : () => Router.push(`/meeting/${(meeting as Call).id}`)}
+                    link={type === "recordings" ? (meeting as CallRecording).url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`}
+                    buttonText={type === "recordings" ? "Play" : "Start"}
                 />
             )) : (
                 "No Calls"
