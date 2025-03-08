@@ -17,7 +17,7 @@ export const tokenProvider = async () => {
     const Client = new StreamClient(apiKey, apiSecret);
 
     const expiry = Math.floor(Date.now() / 1000) + 60 * 60;
-    const init = Math.floor(Date.now() / 1000) - 60;
+    const init = Math.floor(Date.now() / 1000) - 300;
 
     const token = Client.generateUserToken({ user_id: user.id, expiration: expiry, init_time: init });
 
