@@ -13,7 +13,7 @@ const MobileNav = () => {
     const pathname = usePathname()
 
     return (
-        <section className='w-full max-w-[265px]'>
+        <section className='w-full max-w-[265px] '>
             <Sheet>
                 <SheetTrigger asChild>
                     <Image
@@ -43,7 +43,7 @@ const MobileNav = () => {
 
                         <div className='flex flex-col justify-between overflow-y-auto h-[calc(100vh-72px)]'>
                             <SheetClose asChild>
-                                <section className='flex h-full flex-col gap-6 text-white pt-10'>
+                                <section className='flex h-fit flex-col gap-6 text-white pt-10'>
                                     {sidebarLinks.map((link) => {
                                         const isActive = pathname === link.route
                                         return (
