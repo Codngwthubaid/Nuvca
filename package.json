@@ -16,7 +16,6 @@
     "@stream-io/node-sdk": "^0.4.16",
     "@stream-io/video-react-sdk": "^1.12.4",
     "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.476.0",

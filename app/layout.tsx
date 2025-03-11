@@ -4,7 +4,6 @@ import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -43,7 +42,6 @@ export default function RootLayout({
           {children}
           <Toaster/>
           <Analytics/>
-          <SpeedInsights/>
         </body>
       </html>
     </ClerkProvider>
