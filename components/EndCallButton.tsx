@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import { useCall, useCallStateHooks } from '@stream-io/video-react-sdk'
 import { useRouter } from 'next/navigation'
 
-const EndCallButton = () => {
+export default function EndCallButton() {
 
     const call = useCall()
     const Router = useRouter()
@@ -19,4 +19,3 @@ const EndCallButton = () => {
     )
 }
 
-export default EndCallButton

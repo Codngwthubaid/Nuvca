@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
-const Sidebar = () => {
+export default function Sidebar() {
 
     const pathname = usePathname()
 
@@ -35,5 +35,3 @@ const Sidebar = () => {
         </section>
     )
 }
-
-export default Sidebar

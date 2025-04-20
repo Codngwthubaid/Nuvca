@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { HomeCard } from './HomeCard'
+import HomeCard from './HomeCard'
 import { useRouter } from 'next/navigation'
 import MeetingModel from './MeetingModel'
 import { useUser } from '@clerk/nextjs'
@@ -10,7 +10,7 @@ import DatePicker from "react-datepicker";
 import { Input } from "@/components/ui/input"
 
 
-const MeetingTypeList = () => {
+export default function MeetingTypeList () {
     const router = useRouter()
     const [meetState, setMeetState] = useState<"isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined>()
     const { user } = useUser();
@@ -158,5 +158,3 @@ const MeetingTypeList = () => {
         </section>
     )
 }
-
-export default MeetingTypeList

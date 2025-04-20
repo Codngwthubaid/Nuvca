@@ -9,7 +9,7 @@ const protectedRoutes = createRouteMatcher([
     '/personal-room',
     '/meeting(.*)'
 ])
-  
+
 export default clerkMiddleware(async (auth, req) => {
     if (protectedRoutes(req)) {
         await auth.protect()
@@ -22,3 +22,4 @@ export const config = {
         '/(api|trpc)(.*)',
     ],
 }
+

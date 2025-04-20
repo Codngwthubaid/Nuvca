@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 
 
-const MobileNav = () => {
+export default function MobileNav() {
 
     const pathname = usePathname()
 
@@ -70,9 +70,6 @@ const MobileNav = () => {
                     </SheetHeader>
                 </SheetContent>
             </Sheet>
-
         </section>
     )
 }
-
-export default MobileNav

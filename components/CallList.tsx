@@ -6,7 +6,7 @@ import MeetingCard from './MeetingCard';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
+export default function CallList({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) {
     const router = useRouter();
     const { endedCalls, upComingCalls, callRecordings, isLoading } =
         useGetCalls();
@@ -104,5 +104,3 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         </div>
     );
 };
-
-export default CallList;

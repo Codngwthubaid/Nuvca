@@ -4,7 +4,7 @@ import React from 'react'
 import MobileNav from './MobileNav'
 import { SignedIn, UserButton } from '@clerk/nextjs'
 
-const Navbar = () => {
+export default function Navbar () {
   return (
     <nav className='flex justify-between bg-[#1C1F2E] fixed z-50 w-full px-6 py-4 lg:px-10'>
       <Link
@@ -30,5 +30,3 @@ const Navbar = () => {
     </nav>
   )
 }
-
-export default Navbar
