@@ -64,28 +64,28 @@ export default function MeetingTypeList () {
                 title="New Meeting"
                 desc="Start an instant meeting"
                 handleClick={() => setMeetState("isInstantMeeting")}
-                className="bg-orange-500 hover:bg-orange-600"
+                className="bg-orange-500/80 hover:bg-orange-600"
             />
             <HomeCard
                 img="/icons/join-meeting.svg"
                 title="Join Meeting"
                 desc="via invitation link"
                 handleClick={() => setMeetState("isJoiningMeeting")}
-                className="bg-green-500 hover:bg-green-600"
+                className="bg-green-500/80 hover:bg-green-600"
             />
             <HomeCard
                 img="/icons/schedule.svg"
                 title="Schedule Meeting"
                 desc="Plan your meeting"
                 handleClick={() => setMeetState("isScheduleMeeting")}
-                className="bg-blue-500 hover:bg-blue-600"
+                className="bg-yellow-500/80 hover:bg-yellow-600"
             />
             <HomeCard
                 img="/icons/recordings.svg"
                 title="View Recordings"
                 desc="Check your recordings"
                 handleClick={() => router.push("/recordings")}
-                className="bg-purple-500 hover:bg-purple-600"
+                className="bg-purple-500/80 hover:bg-purple-600"
             />
 
             {!callDetails ? (

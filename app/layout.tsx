@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { dark, neobrutalism, shadesOfPurple } from '@clerk/themes'
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -31,18 +32,29 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{
-     layout: {
-      logoImageUrl : "/icons/logo.svg",
-      socialButtonsVariant: "iconButton"
-     }
+      baseTheme: dark,
+      layout: {
+        logoImageUrl: "/icons/logo.svg",
+        socialButtonsVariant: "iconButton"
+      },
+      elements: {
+        footer: {
+          enabled: false
+        }
+      },
+      captcha: {
+        theme: 'dark',
+        size: 'flexible',
+        language: 'es-ES',
+      }
     }}>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white`}
         >
           {children}
-          <Toaster/>
-          <Analytics/>
+          <Toaster />
+          <Analytics />
           <SpeedInsights />
         </body>
       </html>
